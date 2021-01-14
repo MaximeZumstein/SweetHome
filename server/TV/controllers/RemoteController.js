@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const wol = require('wol');
 
 const pressKey = function(key) {
     return fetch(process.env.TV_URL + "/6/input/key", {
@@ -43,7 +44,13 @@ const setVolume = function(volume) {
     })
 }
 
+const powerOn = function() {
+    wol.wake(process.env.TV_MAC, function(err, res){
+        console.log(res);
+    });
+}
 
 module.exports = {
+    powerOn,
     setVolume
 };

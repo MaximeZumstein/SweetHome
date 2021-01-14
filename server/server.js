@@ -1,11 +1,13 @@
-const {setVolume} = require('./TV/controllers/RemoteController');
+const {setVolume, powerOn} = require('./TV/controllers/RemoteController');
 
 const Koa = require('koa');
 const app = new Koa();
 const fetch = require('node-fetch');
 
 require('dotenv').config({path: __dirname + '/.env'})
-setVolume(8);
+
+powerOn();
+//setVolume(8);
 
 
 // app.use(async ctx => {
